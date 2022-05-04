@@ -1,0 +1,15 @@
+#news-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin-top: 5em;
+}
+.card-height {
+  height: 100%;
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+}

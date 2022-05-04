@@ -3,7 +3,13 @@ import { Navbar, Nav } from "react-bootstrap";
 export const NavbarComponent = () => {
   return (
     <>
-      <Navbar bg="dark" expand="lg" variant="dark">
+      <Navbar
+        bg="dark"
+        expand="lg"
+        variant="dark"
+        fixed="top"
+        className="navbar-component"
+      >
         <Navbar.Brand href="#home">NewsApp</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
