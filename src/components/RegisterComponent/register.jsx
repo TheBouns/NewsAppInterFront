@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { register } from "../../features/auth/authSlice";
+
 export const RegisterComponent = () => {
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -16,7 +21,7 @@ export const RegisterComponent = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("data", data);
+    dispatch(register(data));
   };
 
   return (
