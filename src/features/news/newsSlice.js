@@ -28,6 +28,13 @@ export const archiveArticle = createAsyncThunk("news/update", async (id) => {
     console.error(error);
   }
 });
+export const deleteArticle = createAsyncThunk("news/delete", async (id) => {
+  try {
+    return await newsService.deleteArticle(id);
+  } catch (error) {
+    console.error(error);
+  }
+});
 export const newsSlice = createSlice({
   name: "news",
   initialState,
@@ -47,6 +54,15 @@ export const newsSlice = createSlice({
         return element;
       });
       state.news = articleUpdate;
+    });
+    builder.addCase(deleteArticle.fulfilled, (state, action) => {
+      const articleDelete = state.news.map((element) => {
+        if (element._id === action.payload._id) {
+          element = action.payload;
+        }
+        return element;
+      });
+      state.news = articleDelete;
     });
   },
 });

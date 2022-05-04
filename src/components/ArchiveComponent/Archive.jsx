@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { archiveArticle, getAll } from "../../features/news/newsSlice";
-import { Card, Button } from "react-bootstrap";
-import "./news.css";
+import { Card } from "react-bootstrap";
 
-export const NewsComponent = () => {
+export const ArchiveComponent = () => {
   const { news } = useSelector((state) => state.news);
 
   const dispatch = useDispatch();
@@ -12,15 +11,9 @@ export const NewsComponent = () => {
   useEffect(() => {
     dispatch(getAll());
   }, []);
-  const archive = (id) => {
-    dispatch(archiveArticle(id));
-  };
-  const deleteNew = (id) => {
-    dispatch(deleteNew(id));
-  };
 
   const article = news.map((item) => {
-    return item.archive === false ? (
+    return item.archive ? (
       <Card border="secondary" style={{ width: "100%" }} key={item._id}>
         <Card.Img
           variant="top"
@@ -32,14 +25,6 @@ export const NewsComponent = () => {
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.description}</Card.Text>
           <Card.Text>{item.content}</Card.Text>
-          <div className="card-buttons">
-            <Button variant="primary" onClick={() => archive(item._id)}>
-              Archive
-            </Button>
-            <Button variant="danger" onClick={() => deleteNew(item._id)}>
-              Delete
-            </Button>
-          </div>
         </Card.Body>
       </Card>
     ) : null;

@@ -5,6 +5,7 @@ import { RegisterComponent } from "./components/RegisterComponent/register";
 import { NavbarComponent } from "./components/NavbarComponent/navbar";
 import { NewsComponent } from "./components/NewsComponent/news";
 import { CreateArticle } from "./components/CreateArticle/Article";
+import { ArchiveComponent } from "./components/ArchiveComponent/Archive";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <LoginComponent /> */}
         <NewsComponent />
         <CreateArticle />
+        <h1>ARCHIVADOS</h1>
+        <ArchiveComponent />
       </div>
     </>
   );

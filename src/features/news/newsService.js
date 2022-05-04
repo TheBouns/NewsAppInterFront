@@ -15,10 +15,14 @@ const archiveArticle = async (id) => {
   const res = await axios.put(API_URL + "news/" + id);
   return res.data;
 };
+const deleteArticle = async (id) => {
+  return await axios.delete(API_URL + "news/delete/" + id);
+};
 const newsService = {
   getAll,
   createArticle,
   archiveArticle,
+  deleteArticle,
 };
 
 export default newsService;
