@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-export const RegisterComponent = () => {
+import { useState } from "react";
+export const LoginComponent = () => {
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
   });
-  const { name, email, password } = data;
+  const { email, password } = data;
   const onChange = (change) => {
     setData((prevState) => ({
       ...prevState,
@@ -18,21 +17,10 @@ export const RegisterComponent = () => {
     event.preventDefault();
     console.log("data", data);
   };
-
   return (
     <div>
       <Form onSubmit={onSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            name="name"
-            value={name}
-            onChange={onChange}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formLoginEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -41,12 +29,9 @@ export const RegisterComponent = () => {
             value={email}
             onChange={onChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" controlId="formLoginPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
