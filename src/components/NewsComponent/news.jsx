@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAll } from "../../features/news/newsSlice";
+import { archiveArticle, getAll } from "../../features/news/newsSlice";
 import { Card, Button } from "react-bootstrap";
 import "./news.css";
 
@@ -10,8 +10,12 @@ export const NewsComponent = () => {
   useEffect(() => {
     dispatch(getAll());
   }, []);
+  const archive = (id) => {
+    dispatch(archiveArticle(id));
+  };
+
   const article = news.map((item) => {
-    return (
+    return item.archive === false ? (
       <Card border="secondary" style={{ width: "100%" }}>
         <Card.Img
           variant="top"
@@ -24,12 +28,14 @@ export const NewsComponent = () => {
           <Card.Text>{item.description}</Card.Text>
           <Card.Text>{item.content}</Card.Text>
           <div className="card-buttons">
-            <Button variant="primary">Archive</Button>
+            <Button variant="primary" onClick={() => archive(item._id)}>
+              Archive
+            </Button>
             <Button variant="danger">Delete</Button>
           </div>
         </Card.Body>
       </Card>
-    );
+    ) : null;
   });
 
   return <div id="news-container">{article}</div>;

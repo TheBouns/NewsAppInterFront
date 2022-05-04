@@ -4,6 +4,7 @@ import { LoginComponent } from "./components/LoginComponent/login";
 import { RegisterComponent } from "./components/RegisterComponent/register";
 import { NavbarComponent } from "./components/NavbarComponent/navbar";
 import { NewsComponent } from "./components/NewsComponent/news";
+import { CreateArticle } from "./components/CreateArticle/Article";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         {/* <RegisterComponent />
       <LoginComponent /> */}
         <NewsComponent />
+        <CreateArticle />
       </div>
     </>
   );

@@ -7,8 +7,18 @@ const getAll = async () => {
   return res.data;
 };
 
+const createArticle = async (data) => {
+  const res = await axios.post(API_URL + "news", data);
+  return res.data;
+};
+const archiveArticle = async (id) => {
+  const res = await axios.put(API_URL + "news/" + id);
+  return res.data;
+};
 const newsService = {
   getAll,
+  createArticle,
+  archiveArticle,
 };
 
 export default newsService;
