@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { archiveArticle, getAll } from "../../features/news/newsSlice";
+import { archiveArticle, getAllArchived } from "../../features/news/newsSlice";
 import { Card } from "react-bootstrap";
 
 export const ArchiveComponent = () => {
@@ -9,7 +9,7 @@ export const ArchiveComponent = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAll());
+    dispatch(getAllArchived());
   }, []);
 
   const article = news.map((item) => {

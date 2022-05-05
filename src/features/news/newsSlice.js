@@ -14,6 +14,13 @@ export const getAll = createAsyncThunk("news/getAll", async () => {
     console.error(error);
   }
 });
+export const getAllArchived = createAsyncThunk("news/archive", async () => {
+  try {
+    return await newsService.getAllArchived();
+  } catch (error) {
+    console.error(error);
+  }
+});
 export const createArticle = createAsyncThunk("news/create", async (data) => {
   try {
     return await newsService.createArticle(data);
@@ -41,6 +48,9 @@ export const newsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
+      state.news = action.payload;
+    });
+    builder.addCase(getAllArchived.fulfilled, (state, action) => {
       state.news = action.payload;
     });
     builder.addCase(createArticle.fulfilled, (state, action) => {

@@ -6,6 +6,10 @@ const getAll = async () => {
   const res = await axios.get(API_URL + "news");
   return res.data;
 };
+const getAllArchived = async () => {
+  const res = await axios.get(API_URL + "news/archived");
+  return res.data;
+};
 
 const createArticle = async (data) => {
   const res = await axios.post(API_URL + "news", data);
@@ -21,6 +25,7 @@ const deleteArticle = async (id) => {
 };
 const newsService = {
   getAll,
+  getAllArchived,
   createArticle,
   archiveArticle,
   deleteArticle,
