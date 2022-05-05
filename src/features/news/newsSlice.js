@@ -44,7 +44,7 @@ export const newsSlice = createSlice({
       state.news = action.payload;
     });
     builder.addCase(createArticle.fulfilled, (state, action) => {
-      state.news = [action.payload, ...state.news];
+      state.news = [action.payload.newArticle, ...state.news];
     });
     builder.addCase(archiveArticle.fulfilled, (state, action) => {
       const articleUpdate = state.news.map((element) => {

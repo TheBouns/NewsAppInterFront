@@ -16,7 +16,8 @@ const archiveArticle = async (id) => {
   return res.data;
 };
 const deleteArticle = async (id) => {
-  return await axios.delete(API_URL + "news/delete/" + id);
+  const res = await axios.delete(API_URL + "news/delete/" + id);
+  return res.data;
 };
 const newsService = {
   getAll,

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { archiveArticle, getAll } from "../../features/news/newsSlice";
+import {
+  archiveArticle,
+  deleteArticle,
+  getAll,
+} from "../../features/news/newsSlice";
 import { Card, Button } from "react-bootstrap";
 import "./news.css";
 
@@ -16,12 +20,12 @@ export const NewsComponent = () => {
     dispatch(archiveArticle(id));
   };
   const deleteNew = (id) => {
-    dispatch(deleteNew(id));
+    dispatch(deleteArticle(id));
   };
 
   const article = news.map((item) => {
     return item.archive === false ? (
-      <Card border="secondary" style={{ width: "100%" }} key={item._id}>
+      <Card border="secondary" style={{ width: "50%" }} key={item._id}>
         <Card.Img
           variant="top"
           src={item.image}
@@ -36,7 +40,12 @@ export const NewsComponent = () => {
             <Button variant="primary" onClick={() => archive(item._id)}>
               Archive
             </Button>
-            <Button variant="danger" onClick={() => deleteNew(item._id)}>
+            <Button
+              variant="danger"
+              onClick={() => {
+                deleteNew(item._id);
+              }}
+            >
               Delete
             </Button>
           </div>
