@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  archiveArticle,
-  deleteArticle,
-  getAll,
-} from "../../features/news/newsSlice";
+import { archiveArticle, getAll } from "../../features/news/newsSlice";
 import { Card, Button } from "react-bootstrap";
 import "./news.css";
 
@@ -18,9 +14,6 @@ export const NewsComponent = () => {
   }, []);
   const archive = (id) => {
     dispatch(archiveArticle(id));
-  };
-  const deleteNew = (id) => {
-    dispatch(deleteArticle(id));
   };
 
   const article = news.map((item) => {
@@ -36,19 +29,10 @@ export const NewsComponent = () => {
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.description}</Card.Text>
           <Card.Text>{item.content}</Card.Text>
-          <div className="card-buttons">
-            <Button variant="primary" onClick={() => archive(item._id)}>
-              Archive
-            </Button>
-            <Button
-              variant="danger"
-              onClick={() => {
-                deleteNew(item._id);
-              }}
-            >
-              Delete
-            </Button>
-          </div>
+
+          <Button variant="primary" onClick={() => archive(item._id)}>
+            Archive
+          </Button>
         </Card.Body>
       </Card>
     ) : null;
