@@ -4,7 +4,7 @@ import newsService from "./newsService";
 const initialState = {
   news: [],
   article: {},
-  isloading: false,
+  isLoading: false,
 };
 
 export const getAll = createAsyncThunk("news/getAll", async () => {
@@ -45,10 +45,17 @@ export const deleteArticle = createAsyncThunk("news/delete", async (id) => {
 export const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.isLoading = false;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getAll.fulfilled, (state, action) => {
       state.news = action.payload;
+    });
+    builder.addCase(getAll.pending, (state, action) => {
+      state.isLoading = true;
     });
     builder.addCase(getAllArchived.fulfilled, (state, action) => {
       state.news = action.payload;
@@ -77,4 +84,5 @@ export const newsSlice = createSlice({
   },
 });
 
+export const { reset } = newsSlice.actions;
 export default newsSlice.reducer;

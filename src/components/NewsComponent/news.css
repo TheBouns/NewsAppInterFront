@@ -2,9 +2,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2em;
-  flex-wrap: wrap;
-  margin-top: 5em;
 }
 .card-height {
   height: 100%;

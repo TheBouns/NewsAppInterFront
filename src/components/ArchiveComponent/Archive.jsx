@@ -17,7 +17,7 @@ export const ArchiveComponent = () => {
 
   const article = news.map((item) => {
     return item.archive ? (
-      <Card border="secondary" style={{ width: "50%" }} key={item._id}>
+      <Card border="secondary" style={{ width: "60%" }} key={item._id}>
         <Card.Img
           variant="top"
           src={item.image}
@@ -28,6 +28,8 @@ export const ArchiveComponent = () => {
           <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.description}</Card.Text>
           <Card.Text>{item.content}</Card.Text>
+          <Card.Text>Source: {item.source}</Card.Text>
+          <Card.Text>Author: {item.author}</Card.Text>
           <Button
             variant="danger"
             onClick={() => {
