@@ -13,12 +13,7 @@ export const ModalComponent = () => {
         AddNew
       </Button>
 
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
+      <Modal show={show} onHide={handleClose} keyboard={false}>
         <Modal.Header>
           <Modal.Title>
             Add an article and will be publish in our website:
