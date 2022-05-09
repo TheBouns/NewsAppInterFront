@@ -1,9 +1,16 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { createArticle } from "../../features/news/newsSlice";
 import { useDispatch } from "react-redux";
+
 export const CreateArticle = () => {
   const dispatch = useDispatch();
-
+  const alert = () => {
+    return (
+      <Alert key="success" variant="dark">
+        This is a alert—check it out!
+      </Alert>
+    );
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -13,6 +20,7 @@ export const CreateArticle = () => {
     formData.set("content", e.target.content.value);
     formData.set("author", e.target.author.value);
     formData.set("source", e.target.source.value);
+    window.alert("New Has been created");
     dispatch(createArticle(formData));
   };
   return (

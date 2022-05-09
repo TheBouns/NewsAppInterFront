@@ -2,18 +2,20 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getArticleByTitle } from "../../features/news/newsSlice";
+import { NewsComponent } from "../NewsComponent/news";
 
 export const SearchComponent = () => {
-  const { news } = useSelector((state) => state.news);
   const { title } = useParams();
   const dispatch = useDispatch();
+  const { news } = useSelector((state) => state.news);
+
   useEffect(() => {
-    console.log(title);
     dispatch(getArticleByTitle(title));
-  }, [title]);
-  const article = news.map((item) => {
-    console.log(item);
-    <div>{item.title}</div>;
-  });
-  return <div>{article}</div>;
+  }, []);
+  console.log(news);
+  //   const finded = news.map((item) => {
+  //     return <p>{item.title}</p>;
+  //   });
+
+  return <div>hey</div>;
 };

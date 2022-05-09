@@ -49,5 +49,12 @@ export const NewsComponent = () => {
     ) : null;
   });
 
-  return <div id="news-container">{article}</div>;
+  return (
+    <div id="news-container">
+      <span style={{ display: "inline-block" }}>
+        <h1 className="news-container-title">Welcome To NewsAPP Website</h1>
+      </span>
+      {article}
+    </div>
+  );
 };

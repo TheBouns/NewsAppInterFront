@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap");
 #news-container {
   height: 100%;
   display: flex;
@@ -11,4 +12,22 @@
 .card-buttons {
   display: flex;
   justify-content: space-between;
+}
+.news-container-title {
+  font-size: 3.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  font-family: "Oleo Script Swash Caps", cursive;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }

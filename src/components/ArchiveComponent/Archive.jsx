@@ -54,5 +54,10 @@ export const ArchiveComponent = () => {
     ) : null;
   });
 
-  return <div id="news-container">{article}</div>;
+  return (
+    <div id="news-container">
+      <h2>Archived:</h2>
+      {article}
+    </div>
+  );
 };

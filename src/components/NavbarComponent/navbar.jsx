@@ -1,18 +1,9 @@
 import { useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  NavbarBrand,
-} from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { Navbar, Nav, NavbarBrand } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { ModalComponent } from "../ModalComponent/modalcomponent";
 export const NavbarComponent = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [text, setText] = useState("");
   const handleChange = (e) => {
     setText(e.target.value);

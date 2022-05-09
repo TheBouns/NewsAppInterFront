@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/archived" element={<ArchiveComponent />} />
             <Route path="/addnew" element={<ModalComponent />} />
-            <Route path="/find/:title" element={<SearchComponent />} />
+            <Route path="/search/:title" element={<SearchComponent />} />
             <Route path="*" element={<NoPageFound />} />
             <Route path="/" element={<NewsComponent />} />
           </Routes>
