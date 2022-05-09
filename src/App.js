@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import { LoginComponent } from "./components/LoginComponent/login";
-import { RegisterComponent } from "./components/RegisterComponent/register";
 import { NavbarComponent } from "./components/NavbarComponent/navbar";
 import { NewsComponent } from "./components/NewsComponent/news";
-import { CreateArticle } from "./components/CreateArticle/Article";
 import { ArchiveComponent } from "./components/ArchiveComponent/Archive";
-import { SpinnerComponent } from "./components/SpinnerComponent/spinner";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ModalComponent } from "./components/ModalComponent/modalcomponent";
+import { SearchComponent } from "./components/SearchComponent/Search";
+import { NoPageFound } from "./components/NotFoundComponent/notfound";
 
 function App() {
   return (
@@ -17,9 +15,11 @@ function App() {
         <NavbarComponent />
         <div id="app-content-container">
           <Routes>
-            <Route path="/" element={<NewsComponent />} />
             <Route path="/archived" element={<ArchiveComponent />} />
             <Route path="/addnew" element={<ModalComponent />} />
+            <Route path="/find/:title" element={<SearchComponent />} />
+            <Route path="*" element={<NoPageFound />} />
+            <Route path="/" element={<NewsComponent />} />
           </Routes>
         </div>
       </BrowserRouter>

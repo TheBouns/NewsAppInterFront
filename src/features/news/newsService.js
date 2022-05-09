@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AccordionCollapse } from "react-bootstrap";
 
 const API_URL = "http://localhost:3005/";
 
@@ -23,12 +24,17 @@ const deleteArticle = async (id) => {
   const res = await axios.delete(API_URL + "news/delete/" + id);
   return res.data;
 };
+const getArticleByTitle = async (title) => {
+  const res = await axios.get(API_URL + "news/find/" + title);
+  return res.data;
+};
 const newsService = {
   getAll,
   getAllArchived,
   createArticle,
   archiveArticle,
   deleteArticle,
+  getArticleByTitle,
 };
 
 export default newsService;

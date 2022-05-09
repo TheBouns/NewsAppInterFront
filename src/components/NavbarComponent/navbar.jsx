@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -7,11 +7,18 @@ import {
   Button,
   NavbarBrand,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { ModalComponent } from "../ModalComponent/modalcomponent";
 export const NavbarComponent = () => {
-  const scrollTop = () => {
-    return window.scrollTo(0, 0);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [text, setText] = useState("");
+  const handleChange = (e) => {
+    setText(e.target.value);
+    if (e.key === "Enter") {
+      navigate("/search/" + text);
+    }
   };
   return (
     <>
@@ -22,9 +29,7 @@ export const NavbarComponent = () => {
         fixed="top"
         className="navbar-component"
       >
-        <NavbarBrand className="navbar-brand" onClick={scrollTop()}>
-          NewsApp
-        </NavbarBrand>
+        <NavbarBrand className="navbar-brand">NewsApp</NavbarBrand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -37,17 +42,14 @@ export const NavbarComponent = () => {
             <ModalComponent />
           </Nav>
         </Navbar.Collapse>
-        <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="primary" bg="primary">
-            Search
-          </Button>
-        </Form>
+        <input
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          bg="sm"
+          aria-label="Search"
+          onKeyUp={handleChange}
+        />
       </Navbar>
     </>
   );

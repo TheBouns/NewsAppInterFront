@@ -31,13 +31,13 @@ export const CreateArticle = () => {
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter email"
+            placeholder="Title"
             name="title"
             value={title}
             onChange={onChange}
+            required
           />
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formLoginPassword">
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -46,8 +46,52 @@ export const CreateArticle = () => {
             name="description"
             value={description}
             onChange={onChange}
+            required
           />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="formLoginPassword">
+          <Form.Label>Content</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            placeholder="Content"
+            name="content"
+            value={content}
+            onChange={onChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formLoginPassword">
+          <Form.Label>Author</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Author"
+            name="author"
+            value={author}
+            onChange={onChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formLoginPassword">
+          <Form.Label>Source</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Source"
+            name="source"
+            value={source}
+            onChange={onChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formLoginPassword">
+          <Form.Label>Image</Form.Label>
+          <Form.Control
+            type="file"
+            single
+            name="image"
+            value={image}
+            onChange={onChange}
+          />
+        </Form.Group>
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

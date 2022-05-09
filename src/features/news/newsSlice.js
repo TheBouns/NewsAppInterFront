@@ -42,6 +42,17 @@ export const deleteArticle = createAsyncThunk("news/delete", async (id) => {
     console.error(error);
   }
 });
+export const getArticleByTitle = createAsyncThunk(
+  "news/find",
+  async (title) => {
+    try {
+      const news = await newsService.getArticleByTitle(title);
+      console.log(news);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 export const newsSlice = createSlice({
   name: "news",
   initialState,
@@ -80,6 +91,9 @@ export const newsSlice = createSlice({
         return element;
       });
       state.news = articleDelete;
+    });
+    builder.addCase(getArticleByTitle.fulfilled, (state, action) => {
+      state.news = action.payload;
     });
   },
 });
