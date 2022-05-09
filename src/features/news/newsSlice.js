@@ -46,7 +46,7 @@ export const getArticleByTitle = createAsyncThunk(
   "news/find",
   async (title) => {
     try {
-      await newsService.getArticleByTitle(title);
+      return await newsService.getArticleByTitle(title);
     } catch (error) {
       console.error(error);
     }

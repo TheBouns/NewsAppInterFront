@@ -11,11 +11,11 @@ export const SearchComponent = () => {
 
   useEffect(() => {
     dispatch(getArticleByTitle(title));
-  }, []);
-  console.log(news);
-  //   const finded = news.map((item) => {
-  //     return <p>{item.title}</p>;
-  //   });
+  }, [title]);
 
-  return <div>hey</div>;
+  const finded = news.map((item) => {
+    return <p>{item.title}</p>;
+  });
+
+  return <div>{finded}</div>;
 };
