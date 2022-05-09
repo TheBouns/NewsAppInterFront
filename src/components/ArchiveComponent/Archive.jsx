@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteArticle, getAllArchived } from "../../features/news/newsSlice";
+import {
+  deleteArticle,
+  getAllArchived,
+  reset,
+} from "../../features/news/newsSlice";
 import { Card, Button } from "react-bootstrap";
+import { SpinnerComponent } from "../SpinnerComponent/spinner";
 
 export const ArchiveComponent = () => {
-  const { news } = useSelector((state) => state.news);
+  const { news, isLoading } = useSelector((state) => state.news);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllArchived());
+    const fetchData = async () => {
+      await dispatch(getAllArchived());
+      await dispatch(reset());
+    };
+    fetchData();
   }, []);
   const deleteNew = (id) => {
     dispatch(deleteArticle(id));
   };
-
+  if (isLoading) {
+    return <SpinnerComponent />;
+  }
   const article = news.map((item) => {
     return item.archive ? (
       <Card border="secondary" style={{ width: "60%" }} key={item._id}>

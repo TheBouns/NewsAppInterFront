@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { archiveArticle, getAll, reset } from "../../features/news/newsSlice";
-import { Card, Button, Spinner } from "react-bootstrap";
-import "./news.css";
+import { Card, Button } from "react-bootstrap";
 import { SpinnerComponent } from "../SpinnerComponent/spinner";
+import "./news.css";
 
 export const NewsComponent = () => {
   const { news, isLoading } = useSelector((state) => state.news);

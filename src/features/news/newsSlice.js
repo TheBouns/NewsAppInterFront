@@ -71,6 +71,9 @@ export const newsSlice = createSlice({
     builder.addCase(getAllArchived.fulfilled, (state, action) => {
       state.news = action.payload;
     });
+    builder.addCase(getAllArchived.pending, (state, action) => {
+      state.isLoading = true;
+    });
     builder.addCase(createArticle.fulfilled, (state, action) => {
       state.news = [action.payload.newArticle, ...state.news];
     });
