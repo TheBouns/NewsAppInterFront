@@ -1,0 +1,13 @@
+.navbar-component {
+  text-indent: 0.5em;
+}
+.me-2 {
+  width: 30%;
+  height: 3em;
+  text-indent: 0.5em;
+  background-color: rgb(231, 228, 228);
+}
+.me-2:focus {
+  background-color: white;
+  outline: none;
+}

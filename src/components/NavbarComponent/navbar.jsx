@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navbar, Nav, NavbarBrand } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { ModalComponent } from "../ModalComponent/modalcomponent";
+import "./navbar.css";
 export const NavbarComponent = () => {
   const navigate = useNavigate();
   const [text, setText] = useState("");
@@ -35,9 +36,8 @@ export const NavbarComponent = () => {
         </Navbar.Collapse>
         <input
           type="search"
-          placeholder="Search"
+          placeholder="Search article,title,source...."
           className="me-2"
-          bg="sm"
           aria-label="Search"
           onKeyUp={handleChange}
         />
