@@ -1,5 +1,4 @@
 import axios from "axios";
-import { AccordionCollapse } from "react-bootstrap";
 
 const API_URL = "http://localhost:3005/";
 

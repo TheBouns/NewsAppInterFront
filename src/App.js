@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { NavbarComponent } from "./components/NavbarComponent/navbar";
 import { NewsComponent } from "./components/NewsComponent/news";
 import { ArchiveComponent } from "./components/ArchiveComponent/Archive";
@@ -8,6 +7,7 @@ import { ModalComponent } from "./components/ModalComponent/modalcomponent";
 import { SearchComponent } from "./components/SearchComponent/Search";
 import { NoPageFound } from "./components/NotFoundComponent/notfound";
 import { ToTopComponent } from "./components/ToTopComponent/toTop";
+import "./App.css";
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
             <Route path="/" element={<NewsComponent />} />
           </Routes>
         </div>
-
         <ToTopComponent />
       </BrowserRouter>
     </div>

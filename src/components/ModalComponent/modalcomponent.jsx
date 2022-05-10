@@ -12,7 +12,6 @@ export const ModalComponent = () => {
       <Button variant="success" onClick={handleShow} size="sm">
         AddNew
       </Button>
-
       <Modal show={show} onHide={handleClose} keyboard={false}>
         <Modal.Header>
           <Modal.Title>

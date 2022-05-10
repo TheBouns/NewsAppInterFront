@@ -3,6 +3,7 @@ import { Navbar, Nav, NavbarBrand } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { ModalComponent } from "../ModalComponent/modalcomponent";
 import "./navbar.css";
+
 export const NavbarComponent = () => {
   const navigate = useNavigate();
   const [text, setText] = useState("");

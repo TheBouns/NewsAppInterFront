@@ -62,7 +62,7 @@ export const SearchComponent = () => {
     );
   });
 
-  return news.length == 0 ? (
+  return news.length === 0 ? (
     <div>
       <NoNewsFoundComponent />
     </div>

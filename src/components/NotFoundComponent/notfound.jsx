@@ -1,6 +1,7 @@
 import React from "react";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 import "./notfound.css";
+
 export const NoPageFound = () => {
   return (
     <div id="not-found-container">
