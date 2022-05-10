@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ModalComponent } from "./components/ModalComponent/modalcomponent";
 import { SearchComponent } from "./components/SearchComponent/Search";
 import { NoPageFound } from "./components/NotFoundComponent/notfound";
+import { ToTopComponent } from "./components/ToTopComponent/toTop";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="/" element={<NewsComponent />} />
           </Routes>
         </div>
+
+        <ToTopComponent />
       </BrowserRouter>
     </div>
   );

@@ -4,6 +4,7 @@ import { archiveArticle, getAll, reset } from "../../features/news/newsSlice";
 import { Card, Button } from "react-bootstrap";
 import { SpinnerComponent } from "../SpinnerComponent/spinner";
 import "./news.css";
+import { ToTopComponent } from "../ToTopComponent/toTop";
 
 export const NewsComponent = () => {
   const { news, isLoading } = useSelector((state) => state.news);

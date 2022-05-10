@@ -21,7 +21,9 @@ export const NavbarComponent = () => {
         fixed="top"
         className="navbar-component"
       >
-        <NavbarBrand className="navbar-brand">NewsApp</NavbarBrand>
+        <Link to="/">
+          <NavbarBrand className="navbar-brand">NewsApp</NavbarBrand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
