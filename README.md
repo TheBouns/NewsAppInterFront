@@ -23,7 +23,7 @@ This is a News-app Website created with react. I focused in functionallity befor
 
 ![home](https://res.cloudinary.com/ducxt7zb3/image/upload/v1652176984/Home_vym44g.png)
 
-### Moda View:
+### Modal View:
 
 ![modal](https://res.cloudinary.com/ducxt7zb3/image/upload/v1652176988/modal_yq83xv.png)
 
